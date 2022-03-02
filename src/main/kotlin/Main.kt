@@ -6,8 +6,12 @@ fun main() {
         if (amountNumber  > 600) {
             println (" valor não permito")
         }else{
+            val arrayCurrencyValue: IntArray= intArrayOf(100,50,10,5,1)
+            arrayCurrencyValue.forEach { index -> println(index )}
+
             println ("O valor do saque será $amount reais")
         }
+
     }
 }
 
