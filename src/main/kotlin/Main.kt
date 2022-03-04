@@ -47,10 +47,11 @@ fun noteQuantity(amount: Int) {
 
     var rest = amount
 
-    val numberOfNotes = rest / ballot
-    checkDifferentCurrencies(numberOfNotes, rest, ballot)
-    rest = returnRemainingValue(rest, ballot, numberOfNotes)
-}
+    arrayCurrencyValue.forEach { ballot ->
+        val numberOfNotes = rest / ballot
+        checkDifferentCurrencies(numberOfNotes, rest, ballot)
+        rest = returnRemainingValue(rest, ballot, numberOfNotes)
+    }
 }
 
 fun backToStart() {
