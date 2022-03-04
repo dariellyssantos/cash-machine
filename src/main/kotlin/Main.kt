@@ -13,9 +13,10 @@ fun main() {
     }
 
     println("Deseja fazer nova operação?")
+    println("   1- SIM     2-NÃO" )
+
     val restart = readLine()?.toInt()
 
-    println("   1- SIM     2-NÃO" )
     if(restart==1){
         backToStart()
     }
