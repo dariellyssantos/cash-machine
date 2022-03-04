@@ -4,44 +4,43 @@ fun main() {
     println("---------------------------")
     println(" Qual valor deseja sacar?  ")
 
-    var amount = readLine()?.toInt()
+    val amount = readLine()?.toInt()
     if (amount != null) {
         validWithdrawalAmount(amount)
         noteQuantity(amount)
     } else {
         println("Informe um valor")
     }
-
 }
 
 fun validWithdrawalAmount(amount: Int) {
-    return if (amount > 600 || amount < 10) {
+     if (amount > 600 || amount < 10) {
         println(" valor não permitido")
     } else {
         println("O valor do saque será $amount reais")
     }
 }
 
-fun checkDifferentCurrencies(numberOfNotes: Int, amount: Int, index: Int) {
-    if (amount % index == 0) {
-        return println("voce receberá $numberOfNotes de notas de $index reais")
-    }
-    if (amount % index != 0 && amount / index > 0) {
-        println("voce receberá $numberOfNotes de notas de $index reais")
+fun checkDifferentCurrencies(numberOfNotes: Int, amount: Int, ballot: Int) {
+    if (amount % ballot == 0) {
+         println("voce receberá $numberOfNotes de notas de $ballot reais")
+    }else if (amount % ballot != 0 && amount / ballot > 0) {
+        println("voce receberá $numberOfNotes de notas de $ballot reais")
     }
 }
 
-fun returnRemainingValue(amount: Int, index: Int, numberOfNotes: Int): Int {
-    return amount - (index * numberOfNotes)
+fun returnRemainingValue(amount: Int, ballot: Int, numberOfNotes: Int): Int {
+    return amount - (ballot * numberOfNotes)
 }
 
 fun noteQuantity(amount:Int) {
     val arrayCurrencyValue: IntArray = intArrayOf(100, 50, 10, 5, 1)
 
-       arrayCurrencyValue.forEach { index ->
-        val numberOfNotes = amount / index
-        checkDifferentCurrencies(numberOfNotes, amount, index)
-        amount = returnRemainingValue(amount, index, numberOfNotes)
+    var rest = amount
+
+       arrayCurrencyValue.forEach { ballot ->
+        val numberOfNotes = rest / ballot
+        checkDifferentCurrencies(numberOfNotes, rest, ballot)
+        rest = returnRemainingValue(rest, ballot, numberOfNotes)
     }
-    main()
 }
