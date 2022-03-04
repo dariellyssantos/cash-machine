@@ -11,6 +11,14 @@ fun main() {
     } else {
         println("Informe um valor")
     }
+
+    println("Deseja fazer nova operação?")
+    val restart = readLine()?.toInt()
+
+    println("   1- SIM     2-NÃO" )
+    if(restart==1){
+        backToStart()
+    }
 }
 
 fun validWithdrawalAmount(amount: Int) {
@@ -44,3 +52,6 @@ fun noteQuantity(amount:Int) {
         rest = returnRemainingValue(rest, ballot, numberOfNotes)
     }
 }
+ fun backToStart(){
+     return main()
+ }
