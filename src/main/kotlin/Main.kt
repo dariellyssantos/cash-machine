@@ -24,7 +24,7 @@ fun main() {
 
 fun validWithdrawalAmount(amount: Int) {
     if (amount > 600 || amount < 10) {
-        println(" valor não permitido")
+        println(" Valor não permitido")
     } else {
         println("O valor do saque será $amount reais")
     }
