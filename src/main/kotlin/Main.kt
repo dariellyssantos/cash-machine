@@ -31,10 +31,9 @@ fun validWithdrawalAmount(amount: Int) {
 }
 
 fun checkDifferentCurrencies(numberOfNotes: Int, amount: Int, ballot: Int) {
-    if (amount % ballot == 0) {
-        println("voce receberá $numberOfNotes de notas de $ballot reais")
-    } else if (amount % ballot != 0 && amount / ballot > 0) {
-        println("voce receberá $numberOfNotes de notas de $ballot reais")
+
+    if (amount % ballot == 0 || amount % ballot != 0 && amount / ballot > 0) {
+        println(" $numberOfNotes de notas de $ballot reais ")
     }
 }
 
