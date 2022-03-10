@@ -1,9 +1,19 @@
 fun main() {
 
+    println("---------------------------")
     println("-----Caixa eletronico -----")
     println("---------------------------")
-    println(" Qual valor deseja sacar?  ")
+    println("Deseja fazer uma operação?")
+    println("   1- SIM     2-NÃO")
 
+    when (readLine()?.toInt()) {
+        1 -> playSystem()
+    }
+}
+
+
+fun playSystem() {
+    println(" Qual valor deseja sacar?  ")
     val amount = readLine()?.toInt()
     if (amount != null) {
         validWithdrawalAmount(amount)
@@ -11,16 +21,8 @@ fun main() {
     } else {
         println("Informe um valor")
     }
-
-    println("Deseja fazer nova operação?")
-    println("   1- SIM     2-NÃO")
-
-    val restart = readLine()?.toInt()
-
-    if (restart == 1) {
-        backToStart()
-    }
 }
+
 
 fun validWithdrawalAmount(amount: Int) {
     if (amount > 600 || amount < 10) {
@@ -31,8 +33,7 @@ fun validWithdrawalAmount(amount: Int) {
 }
 
 fun checkDifferentCurrencies(numberOfNotes: Int, amount: Int, ballot: Int) {
-
-    if (amount % ballot == 0 || amount % ballot != 0 && amount / ballot > 0) {
+    if (numberOfNotes > 0) {
         println(" $numberOfNotes de notas de $ballot reais ")
     }
 }
@@ -48,11 +49,10 @@ fun noteQuantity(amount: Int) {
 
     arrayCurrencyValue.forEach { ballot ->
         val numberOfNotes = rest / ballot
-        checkDifferentCurrencies(numberOfNotes, rest, ballot)
-        rest = returnRemainingValue(rest, ballot, numberOfNotes)
+        if (amount % ballot == 0 || amount % ballot != 0 && amount / ballot > 0) {
+            checkDifferentCurrencies(numberOfNotes, rest, ballot)
+            rest = returnRemainingValue(rest, ballot, numberOfNotes)
+        }
     }
 }
 
-fun backToStart() {
-    return main()
-}
