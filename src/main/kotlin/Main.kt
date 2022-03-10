@@ -23,7 +23,6 @@ fun playSystem() {
     }
 }
 
-
 fun validWithdrawalAmount(amount: Int) {
     if (amount > 600 || amount < 10) {
         println(" Valor não permitido")
