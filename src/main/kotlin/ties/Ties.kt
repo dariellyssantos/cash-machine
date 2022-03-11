@@ -8,9 +8,9 @@ fun main() {
     println("   1- list  2-for   3-forEach ")
 
     when (readLine()?.toInt()) {
-        1 -> tieList(numberList)
-        2 -> tieFor(numberList)
-        3 -> tieForEach(numberList)
+        1 -> println( tieList(numberList))
+        2 -> println(tieFor(numberList))
+        3 -> println(tieForEach(numberList))
     }
 }
 
