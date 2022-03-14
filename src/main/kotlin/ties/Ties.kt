@@ -40,7 +40,9 @@ fun tieForEach(numberList: List<Int>): MutableList<Int> {
 
 
 fun tieList(numberList: List<Int>): List<Int> {
-    return numberList.filter { it % 2 == 0 }
+   return divisor(numberList,2)
 
 }
-
+ fun divisor(list:List<Int>, divisor:Int): List<Int>{
+     return list.filter {it % divisor == 0}
+ }

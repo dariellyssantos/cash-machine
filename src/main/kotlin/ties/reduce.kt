@@ -12,10 +12,9 @@ fun sumNumberReduce(numberList: List<Int>): Int {
 }
 
 fun sumNumberForEach(numberList: List<Int>): Int {
-    var previousNumber:Int = 0
+    var previousNumber=0
     numberList.forEach { number: Int ->
-    var sumNumber: Int = number + previousNumber
-    previousNumber = sumNumber
+        previousNumber += number
     }
     return previousNumber
 }

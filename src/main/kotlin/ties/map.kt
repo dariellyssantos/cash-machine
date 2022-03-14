@@ -7,7 +7,7 @@ fun main() {
 }
 
 fun doubleNumberMap(numberList: List<Int>): List<Int> {
-    return numberList.map { double(it) }
+    return numberList.map(::double)
 }
 
 
